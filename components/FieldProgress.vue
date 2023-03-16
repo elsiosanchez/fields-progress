@@ -1,15 +1,40 @@
 <template>
   <div class="demo-progress">
-    <el-progress :percentage="50" />
-    <el-progress :percentage="100" :format="format" />
-    <el-progress :percentage="100" status="success" />
-    <el-progress :percentage="100" status="warning" />
-    <el-progress :percentage="50" status="exception" />
+    <el-progress
+      :percentage="percentage"
+      :type="type"
+      :stroke-width="strokeWidth"
+      :text-inside="textInside"
+      :status="status"
+      :indeterminate="indeterminate"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
-const format = (percentage) => (percentage === 100 ? 'Full' : `${percentage}%`);
+const props = defineProps({
+  percentage: {
+    type: Number,
+    required: true,
+  },
+  type: {
+    type: String,
+    default: 'line',
+  },
+  strokeWidth: {
+    type: Number,
+    default: 6,
+  },
+  textInside: {
+    type: Boolean,
+    required: true,
+  },
+  status: String,
+  indeterminate: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
 
 <style scoped>

@@ -1,3 +1,3 @@
 <template>
-  <FieldProgress />
+  <FieldProgress :percentage="10" />
 </template>
